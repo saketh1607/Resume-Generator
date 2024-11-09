@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Resume Template</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: {{ background_color }};
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .resume-container {
+            display: flex;
+            max-width: 1000px;
+            margin: auto;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        .left-section, .right-section {
+            width: 50%;
+            padding: 20px;
+        }
+        .profile-image {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        .divider {
+            width: 2px;
+            background-color: #666;
+            margin: 0 20px;
+        }
+        h1, h2, h3 {
+            color: #4A90E2;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        h2 {
+            font-size: 20px;
+        }
+        .basic-info, .section-content {
+            margin-bottom: 15px;
+        }
+        .basic-info span, .contact-info span {
+            font-weight: bold;
+            color: #333;
+        }
+        .section-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #4A90E2;
+            border-bottom: 2px solid #4A90E2;
+            padding-bottom: 5px;
+            margin-bottom: 10px;
+        }
+        .skills-list, .language-list, .certificate-list, .award-list, .interest-list, .affiliation-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .skills-list li, .language-list li, .certificate-list li, .award-list li, .interest-list li, .affiliation-list li {
+            background: #4A90E2;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            margin: 5px;
+            font-size: 14px;
+        }
+        p {
+            margin: 5px 0;
+            line-height: 1.4;
+        }
+        .right-section h3, .left-section h3 {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="resume-container">
+        <img src="{{ image_url }}" alt="Profile Photo" class="profile-image">
+        <div class="left-section">
+            <h1>{{ name }}</h1>
+            <div class="basic-info">
+                <p><span>Email:</span> {{ email }}</p>
+                <p><span>Phone:</span> {{ phone }}</p>
+                <p><span>Address:</span> {{ address }}</p>
+                <p><span>LinkedIn:</span> <a href="{{ linkedin }}">{{ linkedin }}</a></p>
+                <p><span>GitHub:</span> <a href="{{ github }}">{{ github }}</a></p>
+                <p><span>Website:</span> <a href="{{ portfolio }}">{{ portfolio }}</a></p>
+            </div>
+            <div class="section-content">
+                <h3 class="section-title">Professional Summary</h3>
+                <p>{{ professional_summary }}</p>
+            </div>
+            <div class="section-content">
+                <h3 class="section-title">Education</h3>
+                <p>{{ education }}</p>
+            </div>
+            <div class="section-content">
+                <h3 class="section-title">Skills</h3>
+                <ul class="skills-list">
+                    {% for skill in skills %}
+                        <li>{{ skill }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="section-content">
+                <h3 class="section-title">Languages</h3>
+                <ul class="language-list">
+                    {% for language in languages %}
+                        <li>{{ language }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <div class="divider"></div>
+        <div class="right-section">
+            <div class="section-content">
+                <h3 class="section-title">Experience</h3>
+                <p>{{ experience }}</p>
+            </div>
+            <div class="section-content">
+                <h3 class="section-title">Projects</h3>
+                <p>{{ projects }}</p>
+            </div>
+            <div class="section-content">
+                <h3 class="section-title">Certifications</h3>
+                <ul class="certificate-list">
+                    {% for certificate in certificates %}
+                        <li>{{ certificate }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="section-content">
+                <h3 class="section-title">Awards</h3>
+                <ul class="award-list">
+                    {% for award in awards %}
+                        <li>{{ award }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="section-content">
+                <h3 class="section-title">Interests</h3>
+                <ul class="interest-list">
+                    {% for interest in interests %}
+                        <li>{{ interest }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="section-content">
+                <h3 class="section-title">Professional Affiliations</h3>
+                <ul class="affiliation-list">
+                    {% for affiliation in affiliations %}
+                        <li>{{ affiliation }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="section-content">
+                <h3 class="section-title">References</h3>
+                <p>{{ references }}</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

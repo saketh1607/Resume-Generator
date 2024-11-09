@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Extended Resume Form</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .form-container {
+            max-width: 800px;
+            margin: auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            font-size: 28px;
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #555;
+        }
+        input[type="text"], input[type="email"], input[type="url"], textarea, select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            color: #333;
+        }
+        textarea {
+            resize: vertical;
+            height: 100px;
+        }
+        button {
+            background-color: #4A90E2;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #357ABD;
+        }
+        .form-group-inline {
+            display: flex;
+            justify-content: space-between;
+        }
+        .form-group-inline .form-group {
+            flex: 1;
+            margin-right: 10px;
+        }
+        .form-group-inline .form-group:last-child {
+            margin-right: 0;
+        }
+        .section-title {
+            font-size: 20px;
+            color: #4A90E2;
+            border-bottom: 2px solid #4A90E2;
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Fill Your Resume Details</h1>
+        <form action="/generate_resume" method="post">
+            <div class="form-group">
+                <label>Name</label>
+                <input type="text" name="name" required>
+            </div>
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label>Phone</label>
+                <input type="text" name="phone" required>
+            </div>
+            <div class="form-group">
+                <label>Address</label>
+                <input type="text" name="address">
+            </div>
+            <div class="form-group">
+                <label>LinkedIn URL</label>
+                <input type="url" name="linkedin">
+            </div>
+            <div class="form-group">
+                <label>GitHub URL</label>
+                <input type="url" name="github">
+            </div>
+            <div class="form-group">
+                <label>Personal Website/Portfolio</label>
+                <input type="url" name="portfolio">
+            </div>
+            <div class="form-group">
+                <label>Image URL</label>
+                <input type="url" name="image_url">
+            </div>
+            <div class="section-title">Professional Summary</div>
+            <div class="form-group">
+                <textarea name="professional_summary" required placeholder="Briefly summarize your expertise, skills, and career goals"></textarea>
+            </div>
+            <div class="section-title">Education</div>
+            <div class="form-group">
+                <textarea name="education" required placeholder="Include degrees, institutions, graduation years, honors, and relevant coursework"></textarea>
+            </div>
+            <div class="section-title">Academic Projects & Research</div>
+            <div class="form-group">
+                <textarea name="academic_projects" placeholder="List academic projects, research papers, or theses"></textarea>
+            </div>
+            <div class="section-title">Experience</div>
+            <div class="form-group">
+                <textarea name="experience" required placeholder="List job titles, companies, durations, and responsibilities"></textarea>
+            </div>
+            <div class="section-title">Leadership & Volunteering Experience</div>
+            <div class="form-group">
+                <textarea name="leadership_volunteering" placeholder="Include any roles in leadership or volunteering positions"></textarea>
+            </div>
+            <div class="form-group">
+                <label>Skills (comma-separated)</label>
+                <input type="text" name="skills" placeholder="Technical, soft skills, etc.">
+            </div>
+            <div class="form-group">
+                <label>Languages</label>
+                <textarea name="languages" placeholder="Language proficiency and level"></textarea>
+            </div>
+            <div class="form-group">
+                <label>Certificates & Licenses</label>
+                <textarea name="certificates" placeholder="List certificates, licenses, and issuing authorities"></textarea>
+            </div>
+            <div class="form-group">
+                <label>Professional Training & Workshops</label>
+                <textarea name="training" placeholder="Relevant training, seminars, or workshops attended"></textarea>
+            </div>
+            <div class="form-group">
+                <label>Awards & Recognitions</label>
+                <textarea name="awards" placeholder="List awards, recognitions, or honors"></textarea>
+            </div>
+            <div class="form-group">
+                <label>Interests</label>
+                <textarea name="interests" placeholder="Include hobbies, personal interests, or unique skills"></textarea>
+            </div>
+            <div class="form-group">
+                <label>Key Projects</label>
+                <textarea name="projects" required placeholder="Describe projects with goals, outcomes, and technologies used"></textarea>
+            </div>
+            <div class="form-group">
+                <label>Publications & Articles</label>
+                <textarea name="publications" placeholder="List any publications, articles, or blog posts"></textarea>
+            </div>
+            <div class="form-group">
+                <label>Professional Affiliations</label>
+                <textarea name="affiliations" placeholder="List memberships in professional organizations"></textarea>
+            </div>
+            <div class="form-group">
+                <label>References</label>
+                <textarea name="references" placeholder="Include name, position, and contact information for references"></textarea>
+            </div>
+            <div class="form-group">
+                <label>Background Color</label>
+                <input type="color" name="background_color" value="#ffffff">
+            </div>
+            <div class="form-group">
+                <label>Select Template</label>
+                <select name="template_choice" required>
+                    <option value="1">Template 1</option>
+                    <option value="2">Template 2</option>
+                    <option value="3">Template 3</option>
+                </select>
+            </div>
+            <button type="submit">Generate Resume</button>
+        </form>
+    </div>
+</body>
+</html>
