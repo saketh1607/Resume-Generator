@@ -1,8 +1,10 @@
 from flask import Flask, render_template, request, send_file
-import pdfkit
 import os
+import pdfkit
+from waitress import serve 
 
 app = Flask(__name__)
+
 config = pdfkit.configuration(wkhtmltopdf=r'C:\resume_generator\wkhtmltopdf\bin\wkhtmltopdf.exe')
 
 @app.route('/')
@@ -41,9 +43,10 @@ def generate_resume():
 
     pdf_path = os.path.join('static', 'output_resume.pdf')
 
+
     pdfkit.from_string(rendered, pdf_path, configuration=config)
 
     return send_file(pdf_path, as_attachment=True, download_name="resume.pdf")
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    serve(app, host='0.0.0.0', port=8080)
